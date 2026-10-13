@@ -1,10 +1,10 @@
 import { Controller, Post, Body } from '@nestjs/common';
-import { RegisterDto } from '../dto/register.dto.js'; // Sesuaikan lokasi DTO Anda
+import { RegisterDto } from '../dto/register.dto.js'; // Sesuaikan letak folder dto
 
-@Controller() // Atau @Controller('auth') jika ingin URL: /auth/register
+@Controller('auth') // Membuat prefix URL menjadi /auth
 export class AuthController {
-
-  @Post('register') // <-- Ini mendaftarkan endpoint POST /register
+  
+  @Post('register') // Membuat endpoint menjadi /auth/register
   register(@Body() registerDto: RegisterDto) {
     return {
       message: 'Registrasi berhasil!',
